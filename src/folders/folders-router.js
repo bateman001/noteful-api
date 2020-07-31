@@ -25,7 +25,7 @@ foldersRouter
     .post(jsonParser, (req, res, next) => {
         const knexInstance = req.app.get('db')
         const { name, date_created } = req.body
-        newFolder = {name, date_created}
+        newFolder = {name}
 
         for (const [key, value] of Object.entries(newFolder)){
             if (value == null)
@@ -38,6 +38,7 @@ foldersRouter
 
         foldersService.insertFolder(knexInstance, newFolder)
             .then(folder => {
+              console.log(folder);
                 res
                 .status(201)
                 .location(path.posix.join(req.originalUrl, `/${folder.id}`))
