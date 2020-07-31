@@ -2,7 +2,6 @@ const path = require('path')
 const express = require('express')
 const xss = require('xss')
 const foldersService = require('./folders-service')
-const { json } = require('express')
 const foldersRouter = express.Router()
 const jsonParser = express.json()
 
@@ -57,7 +56,7 @@ foldersRouter
             .then(folder => {
                     if (!folder) {
                       return res.status(404).json({
-                        error: { message: `Comment doesn't exist` }
+                        error: { message: `Folder doesn't exist` }
                       })
                     }
                     res.folder = folder
@@ -87,7 +86,7 @@ foldersRouter
         if (numberOfValues === 0)
           return res.status(400).json({
             error: {
-              message: `Request body must contain either 'text' or 'date_commented'`
+              message: `Request body must contain either 'name' or 'date_created'`
             }
           })
     
