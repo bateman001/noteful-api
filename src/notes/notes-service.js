@@ -34,3 +34,5 @@ getAllNotes(knex) {
       .update(newNoteFields)
   },
 }
+
+module.exports = NotefulService
