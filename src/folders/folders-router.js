@@ -8,7 +8,7 @@ const jsonParser = express.json()
 
 const serializeFolder = folder => ({
     id: folder.id,
-    name: xss(folder.text),
+    name: xss(folder.name),
     date_created: folder.date_created,
   })
   
@@ -57,7 +57,7 @@ foldersRouter
             .then(folder => {
                     if (!folder) {
                       return res.status(404).json({
-                        error: { message: `Comment doesn't exist` }
+                        error: { message: `Folder doesn't exist` }
                       })
                     }
                     res.folder = folder
@@ -87,7 +87,7 @@ foldersRouter
         if (numberOfValues === 0)
           return res.status(400).json({
             error: {
-              message: `Request body must contain either 'text' or 'date_commented'`
+              message: `Request body must contain either 'name' or 'date_created'`
             }
           })
     
