@@ -10,7 +10,7 @@ getAllNotes(knex) {
       .into('notes')
       .returning('*')
       .then(rows => {
-        return rows[0]
+        return rows[0] //explain why we return rows[0]
       })
   },
 

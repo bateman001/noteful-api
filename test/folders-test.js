@@ -17,9 +17,9 @@ describe('Folders endpoints', () => {
 
     after('disconnect from db', () => db.destroy())
 
-    before('clean the table', () => db('folders').truncate())
-  
-    afterEach('cleanup', () => db.raw('TRUNCATE folder, notes RESTART IDENTITY CASCADE'))
+    before('clean the table', () => db.raw('TRUNCATE folder, notes RESTART IDENTITY CASCADE'))
+
+    afterEach('cleanup', () => db.raw('TRUNCATE notes, folders RESTART IDENTITY CASCADE')) //is this the proper way to truncate table for test
 
     describe('GET /folders', () => {
         context('Given there are no article', () => {
