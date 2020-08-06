@@ -1,5 +1,5 @@
-const path = require('path')
 const express = require('express')
+const path = require('path')
 const xss = require('xss')
 const foldersService = require('./folders-service')
 const foldersRouter = express.Router()
@@ -49,8 +49,8 @@ foldersRouter
     })
 
 foldersRouter 
-    .route('/:folder_id')
-    .all((req, res, next) => {
+  .route('/:folder_id')
+  .all((req, res, next) => {
         const knexInstance = req.app.get('db')
 
         foldersService.getById(knexInstance, req.params.folder_id)

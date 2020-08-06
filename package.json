@@ -25,11 +25,12 @@
     "mocha": "^8.0.1",
     "morgan": "^1.10.0",
     "pg": "^8.3.0",
+    "postgrator": "^3.2.0",
+    "postgrator-cli": "^3.2.0",
     "supertest": "^4.0.2",
     "xss": "^1.0.8"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4",
-    "postgrator-cli": "^3.2.0"
+    "nodemon": "^2.0.4"
   }
 }
